@@ -1,0 +1,21 @@
+// use prisma-8
+
+model User {
+  id        Int                @id @default(autoincrement())
+  email     String             @unique
+  name     String?
+  number   String             @unique
+  password String
+}
+
+model Merchant {
+  id        Int                @id @default(autoincrement())
+  email     String
+  password  String
+  auth_type AuthType
+}
+
+enum AuthType {
+  Google
+  Github
+}
